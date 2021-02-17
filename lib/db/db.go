@@ -43,6 +43,5 @@ func (db *DBORM) CreateUser(user userModel.User) error {
 	if result.Error != nil {
 		log.Print(result.Error)
 	}
-	log.Print(result.RowsAffected)
 	return result.Error
 }
