@@ -1,16 +1,13 @@
 package userModel
 
 import (
-	"net/http"
+	"gorm.io/gorm"
 )
 
-type user struct {
+type User struct {
+	gorm.Model
 	id        int
-	email     string
-	firstname string
-	name      string
-}
-
-func Create(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("user created"))
+	Email     string
+	Firstname string
+	Name      string
 }

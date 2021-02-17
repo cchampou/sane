@@ -1,16 +1,15 @@
 package main
 
 import (
-	"./lib/db"
 	"./lib/middlewares"
 	"./routers/posts"
 	"./routers/users"
 	"github.com/go-chi/chi"
+	"log"
 	"net/http"
 )
 
 func main() {
-	db.Connect()
 	r := chi.NewRouter()
 
 	middlewares.WithMiddlewares(r)
@@ -27,5 +26,5 @@ func main() {
 		postsRouter.Routes(r)
 	})
 
-	http.ListenAndServe(":3000", r)
+	log.Fatal(http.ListenAndServe(":3000", r))
 }

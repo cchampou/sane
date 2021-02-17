@@ -1,10 +1,15 @@
 package usersRouter
 
 import (
-	"../../models"
+	"../../handlers"
 	"github.com/go-chi/chi"
+	"log"
 )
 
 func Routes(r chi.Router) {
-	r.Get("/", userModel.Create)
+	h, err := userHandler.NewHandler()
+	if err != nil {
+		log.Fatal(err)
+	}
+	r.Get("/", h.Create)
 }
